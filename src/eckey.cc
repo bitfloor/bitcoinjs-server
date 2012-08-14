@@ -9,7 +9,6 @@
 #include "common.h"
 #include "eckey.h"
 
-using namespace std;
 using namespace v8;
 using namespace node;
 
@@ -245,7 +244,7 @@ BitcoinKey::GetPublic(Local<String> property, const AccessorInfo& info)
   }
 
   // Export public
-  unsigned int pub_size = i2o_ECPublicKey(key->ec, NULL);
+  const int pub_size = i2o_ECPublicKey(key->ec, NULL);
   if (!pub_size) {
     // TODO: ERROR: "Error from i2o_ECPublicKey(key->ec, NULL)"
     return scope.Close(Null());
@@ -313,7 +312,7 @@ BitcoinKey::ToDER(const Arguments& args)
   }
 
   // Export DER
-  unsigned int der_size = i2d_ECPrivateKey(key->ec, NULL);
+  const int der_size = i2d_ECPrivateKey(key->ec, NULL);
   if (!der_size) {
     // TODO: ERROR: "Error from i2d_ECPrivateKey(key->ec, NULL)"
     return scope.Close(Null());
@@ -535,7 +534,7 @@ BitcoinKey::SignSync(const Arguments& args)
   ECDSA_SIG *sig = key->Sign(hash_data, hash_len);
 
   // Export DER
-  unsigned int der_size = i2d_ECDSA_SIG(sig, NULL);
+  const int der_size = i2d_ECDSA_SIG(sig, NULL);
   if (!der_size) {
     // TODO: ERROR: "Error from i2d_ECPrivateKey(key->ec, NULL)"
     return scope.Close(Null());
