@@ -1,8 +1,7 @@
-.lock-wscript
-build-cc
 native.node
 node_modules
 daemon/settings.js
 coverage.html
 test-cov
 v8.log
+build

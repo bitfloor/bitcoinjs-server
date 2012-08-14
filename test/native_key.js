@@ -1,7 +1,7 @@
 var vows = require('vows'),
     assert = require('assert');
 
-var ccmodule = require('../native');
+var ccmodule = require('../lib/binding');
 var BitcoinKey = ccmodule.BitcoinKey;
 var Util = require('../lib/util');
 var encodeHex = Util.encodeHex;

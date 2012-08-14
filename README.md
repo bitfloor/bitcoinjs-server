@@ -177,7 +177,7 @@ You can find more information on the Issues tab on Github.
 
 If you see this error:
 
-    Error: Cannot find module '../build-cc/default/native'
+    Error: Cannot load the bindings file. Tried:
 
 This happens when the native components of BitcoinJS are not compiled
 yet.
@@ -185,7 +185,7 @@ yet.
 Go to the `bitcoinjs` folder and run:
 
 ``` sh
-node-waf configure build
+npm install
 ```
 
 # License
